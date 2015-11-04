@@ -1,0 +1,28 @@
+{
+  "name": "ESP8266-IoTJS",
+  "version": "0.0.1",
+  "description": "Package for control Esp8266 (with loaded ESP8266 olimex IoT firmware ) over WebSocket.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "websocket": "^1.0.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Smart-Dashboard/ESP8266-IoTJS.git"
+  },
+  "keywords": [
+    "ESP8266",
+    "IoT",
+    "WebSocket"
+  ],
+  "author": "Dimitar Manovski",
+  "license": " Apache License",
+  "bugs": {
+    "url": "https://github.com/Smart-Dashboard/ESP8266-IoTJS/issues"
+  }
+}
