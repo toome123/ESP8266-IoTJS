@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ESP8266-olimex-IoT
 node.js NPM package to control Esp8266 (with loaded ESP8266 olimex IoT firmware) over WebSocket. With simple commands 
 
@@ -20,3 +21,7 @@ To use this demo you have to
 ## Installation
 
 1. First install node.js on your computer.
+=======
+# ESP8266-IoTJS
+Package for control Esp8266 (with loaded ESP8266 olimex IoT firmware ) over WebSocket.
+>>>>>>> 2b5bb6d142406fd1f20707b7ac6b7efd37dd4ea2
