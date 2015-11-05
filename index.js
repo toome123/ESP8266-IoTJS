@@ -70,6 +70,9 @@ ESP8266IoT.prototype.init = function() {
 				if (message.type ===  'utf8') {
 					try {
 						var data = JSON.parse(message.utf8Data);
+						if (that.options.debug == true) {
+							console.log(data);
+						};
 						if (typeof data.EventData != 'undefined') {
 							if (typeof data.EventData.Device != 'undefined') {
 								switch(data.EventURL){
@@ -119,7 +122,7 @@ ESP8266IoT.prototype.setRelayState = function(state) {
                 }
             }
         )
-    ); 
+    );
 };
 
 ESP8266IoT.prototype.relayOn = function() {
