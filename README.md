@@ -1,5 +1,8 @@
 # ESP8266-IoTJS
 Package for control ESP8266-EVB (with loaded ESP8266 olimex IoT firmware ) over WebSocket.
+[Npm package link](https://www.npmjs.com/package/esp8266-iotjs)
+
+
 #### Use at your own risk, it is Beta 0.0.1
 #### Work properly with only one board connected to host at the time
 only work with 
