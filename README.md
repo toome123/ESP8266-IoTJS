@@ -1,10 +1,24 @@
 # ESP8266-IoTJS
 Package for control ESP8266-EVB (with loaded ESP8266 olimex IoT firmware ) over WebSocket.
 #### Use at your own risk, it is Beta 0.0.1
+#### Work properly with only one board connected ot host at the time
 only work with 
 * Relay
 * Button
-* more ++
+* more comming soon ++
+
+ ## Events
+ - ready (when is web socket is open for requests)
+ - relayStateIsChange (Is triggered when relay state is change)
+ - push (Is triggered when button is pressed)
+
+
+ ## Methods
+ - setRelayState(param) - Change relay state with giving param, accept (1 or 0)
+ - relayOn() - TurnOn the relay
+ - relayOff() - TurnOff the relay
+ - relayToggle() - Toggle relay state
+
 
  ## Requirements
 
