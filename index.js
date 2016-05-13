@@ -42,7 +42,6 @@ ESP8266IoT.prototype.init = function() {
         if (that.options.debug == true) {
     	    console.log('Listening on *:80');   
 		};
-		that.emit('ready');
     });
 
 	/*
@@ -63,6 +62,7 @@ ESP8266IoT.prototype.init = function() {
 	            return;
 	        }
 			that.connection = request.accept();
+			that.emit('ready');
 	        if (that.options.debug == true) {
 	        	console.log('WEBSOCKET: Connection accepted');
 			};
