@@ -39,14 +39,14 @@ To use this you have to
 
 3.Type following commands , but make sure you have already installed NPM and NodeJS
 ```
-mkdir test && cd test
-npm install esp8266-iotjs
+git clone https://github.com/Smart-Dashboard/ESP8266-IoTJS.git
+cd ESP8266-IoTJS
 
 ```
 
 4. Add some code to your project folder , add index.js and write it this:
 ```
-var esp8266 = require('esp8266-iotjs');
+var esp8266 = require('./index.js');
 var board = new esp8266(true);
 
 board.on("push",function(){
