@@ -20,9 +20,6 @@
     "IoT",
     "WebSocket"
   ],
-  "dependencies": {
-    "thing": "https://github.com/Smart-Dashboard/ESP8266-IoTJS.git",
-},
   "author": "Dimitar Manovski",
   "license": " Apache License",
   "bugs": {
