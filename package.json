@@ -21,7 +21,7 @@
     "WebSocket"
   ],
   "dependencies": {
-    "thing": "git://github.com/myGitHubRepo/repo.js.git#56477cb",
+    "thing": "https://github.com/Smart-Dashboard/ESP8266-IoTJS.git",
 },
   "author": "Dimitar Manovski",
   "license": " Apache License",
