@@ -20,6 +20,9 @@
     "IoT",
     "WebSocket"
   ],
+  "dependencies": {
+    "thing": "git://github.com/myGitHubRepo/repo.js.git#56477cb",
+},
   "author": "Dimitar Manovski",
   "license": " Apache License",
   "bugs": {
