@@ -45,7 +45,7 @@ npm install
 
 ```
 
-4. Add some code to your project folder , add index.js and write it this:
+4. Add some code to your project folder , add app.js and write it this:
 ```
 var esp8266 = require('./index.js');
 var board = new esp8266(true);
