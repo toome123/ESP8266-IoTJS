@@ -41,6 +41,7 @@ To use this you have to
 ```
 git clone https://github.com/Smart-Dashboard/ESP8266-IoTJS.git
 cd ESP8266-IoTJS
+npm install
 
 ```
 
