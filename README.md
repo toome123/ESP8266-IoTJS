@@ -8,19 +8,27 @@ Package for control ESP8266-EVB (with loaded ESP8266 olimex IoT firmware ) over 
 only work with 
 * Relay
 * Button
+* MOD-TC-MK2-31855 - temperature sensor (K-TYPE THERMOCOUPLE)
 * more comming soon ++
 
  ## Events
- - ready (when is web socket is open for requests)
- - relayStateIsChange (Is triggered when relay state is change)
- - push (Is triggered when button is pressed)
+ * Board:
+     * ready (when is web socket is open for requests)
+     * push (Is triggered when button is pressed)
+ * Relay:
+     * relayStateIsChange (Is triggered when relay state is change)
+ * MOD-TC-MK2-31855 - temperature sensor
+     * temperature (Return temperature value of MOD-TC-MK2-31855 module.Event trriger is based on your Poll settings on web based config page of the firmware)
 
 
  ## Methods
- - setRelayState(param) - Change relay state with giving param, accept (1 or 0)
- - relayOn() - TurnOn the relay
- - relayOff() - TurnOff the relay
- - relayToggle() - Toggle relay state
+ * Relay module:
+     * setRelayState(param) - Change relay state with giving param, accept (1 or 0)
+     * relayOn() - TurnOn the relay
+     * relayOff() - TurnOff the relay
+     * relayToggle() - Toggle relay state
+ * MOD-TC-MK2-31855 - temperature sensor
+     * getTemperature() - Force emit temperature event to handle temperature.
 
 
  ## Requirements
