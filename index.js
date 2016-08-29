@@ -12,7 +12,7 @@ var events = require('events');
 */
 function ESP8266IoT(debug){
 	that = this;
-	that.options = {'button_URL':'/button','relay_URL':'/relay'};
+	that.options = {'button_URL':'/button','relay_URL':'/relay','modtcmk2_URL':'/mod-tc-mk2'};
 	that.options.debug = debug ? debug : false;
 	events.EventEmitter.call(this);
 	that.connection;
@@ -89,6 +89,12 @@ ESP8266IoT.prototype.init = function() {
 											that.emit('push');
 										}
 									break;
+									case that.options.modtcmk2_URL : 
+										if (that.options.debug == true) {
+												console.log('Event is ' + data.EventData.Data.Temperature);
+											}
+										that.emit('temperature', data.EventData.Data.Temperature);
+									break;
 								}
 							}
 						}
@@ -125,6 +131,7 @@ ESP8266IoT.prototype.setRelayState = function(state) {
     );
 };
 
+
 ESP8266IoT.prototype.relayOn = function() {
 	that.setRelayState(1);
 	that.emit('relayStateIsChange',{"relay":1});
@@ -140,6 +147,18 @@ ESP8266IoT.prototype.relayOff = function() {
 ESP8266IoT.prototype.relayToggle = function() {
 	
 	that.relayState == 1 ? that.relayOff() : that.relayOn();
+};
+
+ESP8266IoT.prototype.getTemperature = function() {
+	// Send message to ESP8266 to emit temperature event
+		that.connection.sendUTF(
+        JSON.stringify(
+            {
+                URL: that.options.modtcmk2_URL,
+                Method: 'GET'
+            }
+        )
+    );
 };
 
 
