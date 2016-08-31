@@ -13,7 +13,7 @@ only work with
 
  ## Events
  * Board:
-     * ready (when is web socket is open for requests)
+     * ready (when web socket is open for requests)
      * push (Is triggered when button is pressed)
  * Relay:
      * relayStateIsChange (Is triggered when relay state is change)
@@ -47,36 +47,43 @@ To use this you have to
 
 3.Type following commands , but make sure you have already installed NPM and NodeJS
 ```
-git clone https://github.com/Smart-Dashboard/ESP8266-IoTJS.git
-cd ESP8266-IoTJS
-npm install
+npm install esp8266-iotjs
 
 ```
 
-4. Add some code to your project folder , add app.js and write it this:
+4. Require 'esp8266-iotjs' in your code:
 ```
-var esp8266 = require('./index.js');
-var board = new esp8266(true);
+var esp8266 = require('esp8266-iotjs');
+var board = new esp8266();
 
 board.on("push",function(){
     console.log("button is pushed");
-
-
 });
-
 ```
 
 ####Or 
 ```
-var test = require('esp8266-iotjs');
-
-var board  = new test();
-
-board.on('relayStateIsChange',function(data){
-   console.log(data); 
-});
+var esp8266 = require('esp8266-iotjs');
+var board = new esp8266();
 
 board.on('push',function(){
     this.relayToggle();
 });
+```
+####Or if you wish make a termostat: 
+```
+var ESP8266EVB = require('esp8266-iotjs');
+var board = new ESP8266EVB();
+var targetTemperature = 31;
+var relayState = 0;
+board.on('ready,function(){
+    board.on('temperature',function(temperature){
+		if(temperature < targetTemperature && relayState == 0){
+		    board.relayOn();
+		}else if (temperature > targetTemperature && relayState == 1){
+		    board.relayOff();
+		}
+	});
+});
+```
 
