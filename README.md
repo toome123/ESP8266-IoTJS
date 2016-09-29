@@ -73,17 +73,20 @@ board.on('push',function(){
 ####Or if you wish make a termostat: 
 ```
 var ESP8266EVB = require('esp8266-iotjs');
-var board = new ESP8266EVB();
+var board = new ESP8266EVB(true);
 var targetTemperature = 31;
 var relayState = 0;
-board.on('ready,function(){
+board.on('ready',function(){
     board.on('temperature',function(temperature){
-		if(temperature < targetTemperature && relayState == 0){
-		    board.relayOn();
-		}else if (temperature > targetTemperature && relayState == 1){
-		    board.relayOff();
-		}
-	});
+    	console.log(temperature);
+        if(temperature < targetTemperature && relayState == 0){
+            board.relayOn();
+            relayState = 1;
+        }else if (temperature > targetTemperature && relayState == 1){
+            board.relayOff();
+            relayState = 0;
+        }
+    });
 });
 ```
 
