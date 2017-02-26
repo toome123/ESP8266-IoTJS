@@ -12,7 +12,7 @@ var events = require('events');
 */
 function ESP8266IoT(debug){
 	that = this;
-	that.options = {'button_URL':'/button','relay_URL':'/relay','modtcmk2_URL':'/mod-tc-mk2'};
+	that.options = {'button_URL':'/button','relay_URL':'/relay','modtcmk2_URL':'/mod-tc-mk2','fingerPrint_URL':"/mod-finger"};
 	that.options.debug = debug ? debug : false;
 	events.EventEmitter.call(this);
 	that.connection;
@@ -94,6 +94,12 @@ ESP8266IoT.prototype.init = function() {
 												console.log('Event is ' + data.EventData.Data.Temperature);
 											}
 										that.emit('temperature', data.EventData.Data.Temperature);
+									break;
+									case that.options.fingerPrint_URL :
+										if (that.options.debug == true) {
+											console.log('Finger Print event is ' + data.EventData.Data);
+	            						}
+	            						that.emit('onFingerPrintDetected', data.EventData);
 									break;
 								}
 							}

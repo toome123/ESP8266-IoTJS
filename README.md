@@ -19,6 +19,8 @@ only work with
      * relayStateIsChange (Is triggered when relay state is change)
  * MOD-TC-MK2-31855 - temperature sensor
      * temperature (Return temperature value of MOD-TC-MK2-31855 module.Event trriger is based on your Poll settings on web based config page of the firmware)
+ * Finger Print Sensor
+     * onFingerPrintDetected - When finger print is detected.
 
 
  ## Methods
@@ -37,13 +39,13 @@ To use this you have to
 
 1. Use Olimex IoT Firmware on your ESP8266-EVB - [Link](https://github.com/OLIMEX/ESP8266/tree/master/IoT%20Firmware)
 2. Configure your computer as IoT Server using ESP-Sample-Application.html-[link](https://github.com/OLIMEX/ESP8266/tree/master/IoT%20Firmware/document)
-	* Select IoT tab
-	* Check WebSocket
-	* Uncheck SSL
-	* Set Server to your computer IP address
-	* Leave everything else blank
-	* (optimal) Fill name -- required for next updates 
-	* (optimal) Fill token -- required for next updates  
+    * Select IoT tab
+    * Check WebSocket
+    * Uncheck SSL
+    * Set Server to your computer IP address
+    * Leave everything else blank
+    * (optimal) Fill name -- required for next updates 
+    * (optimal) Fill token -- required for next updates  
 
 3.Type following commands , but make sure you have already installed NPM and NodeJS
 ```
@@ -73,18 +75,15 @@ board.on('push',function(){
 ####Or if you wish make a termostat: 
 ```
 var ESP8266EVB = require('esp8266-iotjs');
-var board = new ESP8266EVB(true);
+var board = new ESP8266EVB();
 var targetTemperature = 31;
 var relayState = 0;
-board.on('ready',function(){
+board.on('ready,function(){
     board.on('temperature',function(temperature){
-    	console.log(temperature);
         if(temperature < targetTemperature && relayState == 0){
             board.relayOn();
-            relayState = 1;
         }else if (temperature > targetTemperature && relayState == 1){
             board.relayOff();
-            relayState = 0;
         }
     });
 });
