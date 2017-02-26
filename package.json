@@ -1,6 +1,6 @@
 {
   "name": "esp8266-iotjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Package for control Esp8266 (with loaded ESP8266 olimex IoT firmware ) over WebSocket.",
   "main": "index.js",
   "dependencies": {
